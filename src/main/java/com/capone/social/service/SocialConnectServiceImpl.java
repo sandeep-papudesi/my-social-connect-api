@@ -17,11 +17,11 @@ import com.capone.social.model.Person;
  * SocialConnectServiceImpl - Implements business logic to retrieve data 
  * from map and process below scenarios
  *
- *   i> Retrieve users with highest direct connections 
- *  ii> Retrieve users with lowest direct connections 
- * iii> Identify total number of direct connections for a specific user 
- *  iv> Identify total number of direct connections between users
- *   v> Find path between two users
+ *   i. Retrieve users with highest direct connections 
+ *  ii. Retrieve users with lowest direct connections 
+ * iii. Identify total number of direct connections for a specific user 
+ *  iv. Identify total number of direct connections between users
+ *   v. Find path between source and destination elements
  * 
  * @author Sandeep Papudesi
  * @version 1.0
@@ -42,7 +42,7 @@ public class SocialConnectServiceImpl implements SocialConnectService{
 	 * getMaxConnections() - Method to retrieve users with highest connections. 
 	 * 
 	 * @return - returns a list of Person objects
-	 * @
+	 * 
 	 */
 	public List<Person> getMaxConnections() {
 		LOGGER.info("Method to retrieve highest connections - Start");
@@ -156,11 +156,12 @@ public class SocialConnectServiceImpl implements SocialConnectService{
 	/**
 	 * findPath() - Method to find path between two users to connect
 	 * 
-	 * @param source - Start node of the User 
-	 * @param destination - End node of the User
+	 * @param src - Start node of the User 
+	 * @param dest - End node of the User
 	 * @return - returns a list of Person object
 	 */
 	public String findPath(Integer src, Integer dest) {
+		LOGGER.info("Method to find path between source and destination - Start");
 		Map<Integer, Person> graphData = customResourceLoader.retrieveGraphData();
 		boolean[] visited = new boolean[graphData.size() + 1];
 		Integer[] parent = new Integer[graphData.size() + 1];

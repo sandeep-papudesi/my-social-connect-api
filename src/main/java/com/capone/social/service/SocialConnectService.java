@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.capone.social.model.Person;
 /**
- * Interface class to implement features
+ * SocialConnectService -Interface class to implement 
+ * various capabilities
  * 
  * @author Sandeep Papudesi
  * @version 1.0

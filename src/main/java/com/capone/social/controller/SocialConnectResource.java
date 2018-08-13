@@ -16,10 +16,10 @@ import com.capone.social.service.SocialConnectServiceImpl;
  * SocialConnectResource - This is a REST controller to handle user requests
  * This controller will allow users to
  * 
- * i> Retrieve users with highest direct connections ii> Retrieve users with
- * lowest direct connections iii> Identify total number of direct connections
- * for a specific user iv> Identify total number of direct connections between
- * users v> Find path between two users
+ * i. Retrieve users with highest direct connections ii. Retrieve users with
+ * lowest direct connections iii. Identify total number of direct connections
+ * for a specific user iv. Identify total number of direct connections between
+ * users v. Find path between two users
  * 
  * @author Sandeep Papudesi
  * @version 1.0
@@ -61,6 +61,7 @@ public class SocialConnectResource {
 	 * Method to retrieve connection based on User ID. <b>Request Mapping URL</b> -
 	 * <u>http://{server-name}:{port-number}/socialconnect/{id}</u>
 	 * 
+	 * @param id - User Id to retrieve connectionsS
 	 * @return - returns a list of Person object
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
@@ -72,8 +73,8 @@ public class SocialConnectResource {
 	 * Method to find path between two users <b>Request Mapping URL</b> -
 	 * <u>http://{server-name}:{port-number}/socialconnect/{source}/{destination}</u>
 	 * 
-	 * @param fromId - Start node of the User
-	 * @param toId   - End node of the User
+	 * @param source - Start node of the User
+	 * @param destination   - End node of the User
 	 * @return - returns a list of Person object
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "findpath/{source}/{destination}")
