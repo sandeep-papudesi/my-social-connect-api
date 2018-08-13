@@ -3,7 +3,7 @@
 My Social Connect Application 
 
 ## High-Level Design Document
-Download  - [High level design document](./documentation/01_High_Level_Design_SocialConnect_FINAL.docx)
+Download  - [High Level Design Document](./documentation/01_High_Level_Design_SocialConnect_FINAL.docx)
 
 ## Getting Started
 
@@ -54,7 +54,7 @@ Note: After installation, make sure to add Maven and JDK to the classpath.
 
 ## Setup
 
-Clone the source code from GIT repository using below command
+Clone the source code from GIT repository using below command or download it from GIT repo
 
 ```
 C:>git clone https://github.com/sandeep-papudesi/my-social-connect-api
