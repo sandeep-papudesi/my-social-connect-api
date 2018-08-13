@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="UTF-8" />
+		<title>My Social Connect Application</title>
+		<link th:if="${mode == 'development'}" rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+		<link th:if="${mode == 'production'}" rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+		<script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+		<script type="text/javascript" src="/static/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+		<script type="text/javascript" src="/static/app/socialconnect.controller.js" th:src="@{/app/socialconnect.controller.js}"></script>
+		<style>
+			.scroll {
+			width: 600px; height: 150px !important;
+			overflow: auto !important;
+			}
+			table, th, td {
+			   border: 1px solid #ddd;
+			}
+		</style>
+	</head>
+	<body ng-app="app" ng-controller="SocialConnectService as vm" >
+		<header>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="col-lg-5"><img alt="CapitalOne" src="../images/capone.png" ></div>
+					<div class="col-lg-4 navbar-header" >
+						<a class="navbar-brand"><b>My Social Connections</b></a>
+					</div>
+					
+					<div class="col-lg-3"><p class="navbar-text navbar-right" style="margin-right: 10px;">Signed in as <b>Admin</b></p></div>
+				</div>
+			</nav>
+		</header>
+		<div>
+			<div class="row">
+				<div class="col-lg-offset-1 col-lg-9">
+					<table class="table">
+						<thead>
+							<tr>
+								<th width="5%">S.No</th>
+								<th width="20%">User Story</th>
+								<th width="20%">Actions</th>
+								<th width="55%">Data</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td><b>Retrieve users with highest connections</b></td>
+								<td><button class="btn btn-danger" ng-click="vm.getMaxConnections()">Get Highest Connections</button></td>
+								<td>
+									<div class="scroll">
+										<table class="table">
+											<thead>
+												<tr>
+													<th width="15%">User Id</th>
+													<th width="20%">Name</th>
+													<th width="45%">Connections</th>
+													<th width="20%">Total Connections</th>
+												</tr>
+											</thead>
+											<tr ng-repeat="maxCons in vm.maxConsData" >
+												<td>{{maxCons.id}}</td>
+												<td>{{maxCons.name}}</td>
+												<td>{{maxCons.connections}}</td>
+												<td>{{maxCons.connections.length}}</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td><b>Retrieve users with lowest connections</b></td>
+								<td><button class="btn btn-danger" ng-click="vm.getMinConnections()">Get Lowest Connections</button></td>
+								<td>
+									<div class="scroll">
+										<table class="table">
+											<thead>
+												<tr>
+													<th width="15%">User Id</th>
+													<th width="25%">Name</th>
+													<th width="45%">Connections</th>
+													<th width="20%">Total Connections</th>
+												</tr>
+											</thead>
+											<tr ng-repeat="minCons in vm.minConsData" >
+												<td>{{minCons.id}}</td>
+												<td>{{minCons.name}}</td>
+												<td>{{minCons.connections}}</td>
+												<td>{{minCons.connections.length}}</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td><b>Retrieve connections by UserId</b></td>
+								<td>
+									<b> User Id : </b><input type ="text" ng-value="userId" ng-model="userId"><br><br>
+									<div><button class="btn btn-danger" ng-click="vm.getConnection(userId)">Get Connection</button></div>
+								</td>
+								<td>
+									<div class="scroll">
+										<table class="table">
+											<thead>
+												<tr>
+													<th width="15%">User Id</th>
+													<th width="20%">Name</th>
+													<th width="45%">Connections</th>
+													<th width="20%">Total Connections</th>
+												</tr>
+											</thead>
+											<tr ng-repeat="conById in vm.conData" >
+												<td>{{conById.id}}</td>
+												<td>{{conById.name}}</td>
+												<td>{{conById.connections}}</td>
+												<td>{{conById.connections.length}}</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td><b>Retrieve connections between users</b></td>
+								<td>
+									<span ><b> &nbsp;From User Id : </b></span></span><span><input type ="text" ng-value="fromId" ng-model="fromId"></span><br><br>
+									<span><b>  &nbsp;To User Id :&nbsp;&nbsp;&nbsp; &nbsp;</b></span></span><span><input type ="text" ng-value="toId" ng-model="toId"><br><br></span>
+									<div><button class="btn btn-danger" ng-click="vm.retainAllCons(fromId,toId)">Retain All Connections</button></div>
+								</td>
+								<td>
+									<div class="scroll">
+										<table class="table">
+											<thead>
+												<tr>
+													<th width="15%">User Id</th>
+													<th width="20%">Name</th>
+													<th width="45%">Connections</th>
+													<th width="20%">Total Connections</th>
+												</tr>
+											</thead>
+											<tr ng-repeat="userCons in vm.retainAllConsData" >
+												<td>{{userCons.id}}</td>
+												<td>{{userCons.name}}</td>
+												<td>{{userCons.connections}}</td>
+												<td>{{userCons.connections.length}}</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td><b>Find path between users</b></td>
+								<td>
+									<span ><b> Source User Id : </b></span></span><span><input type ="text" ng-value="sourceId" ng-model="sourceId"></span><br><br>
+									<span><b> Destination User Id : </b></span></span><span><input type ="text" ng-value="destinationId" ng-model="destinationId"><br><br></span>
+									<div><button class="btn btn-danger" ng-click="vm.findPath(sourceId,destinationId)">Find Path</button></div>
+								</td>
+								<td>
+									<div class="scroll" ng-hide="isEmpty(vm.findPathData)">
+										<table class="table">
+											<tr>
+												<td>{{vm.findPathData}}</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

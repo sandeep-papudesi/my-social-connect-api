@@ -1,0 +1,9 @@
+1) Who can introduce Lucas to Adam(id=62)
+
+2) How many connections are there between two users. 
+
+3) How many total connections  Lucas(id=4) has?
+
+4) Which user has highest connections
+
+5) Which user has lowest connections
