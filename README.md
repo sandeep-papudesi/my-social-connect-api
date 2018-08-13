@@ -129,5 +129,5 @@ Code coverage is added as part of the build process. Access the report in my-soc
 Existing report can be downloaded from [Code Coverage Report](./documentation/03_code-coverage-jacoco.zip)
 
 ## Java Documentation
-Download java documentaion for my-social-connect-api at 
-[Java Documentation](./documentation/05_JavaDoc.zip)
+Download [Java Documentation](./documentation/05_JavaDoc.zip) for my-social-connect-api.
+
