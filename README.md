@@ -1,8 +1,8 @@
 # Project Title
 
-My Social Connect Application 
+My Social Connect Application - Enables users to find the shortest path to connect
 
-# High-Level Design Document
+## High-Level Design Document
 Download  - [High level design document](./documentation/01_High_Level_Design_SocialConnect_FINAL.docx)
 
 ## Getting Started
@@ -44,7 +44,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 Install Java, Maven, and Eclipse if it is not installed or does not have the correct version. You can download the same from below location
 
 
-* [JDK-10](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html) - Install Java
+* [JDK-10](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html) - Install JDK
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [Eclipse - Photon](https://www.eclipse.org/downloads/) -Eclipse IDE to ren and view the source code
 
@@ -57,7 +57,7 @@ Note: After installation, make sure to add Maven and JDK to the classpath.
 Clone the source code from GIT repository using below command
 
 ```
-git clone 
+C:>git clone https://github.com/sandeep-papudesi/my-social-connect-api
 ```
 
 ### Importing the project to Eclipse IDE
@@ -83,7 +83,7 @@ C:>mvnw spring-boot:run
 ```
 
 ### Usage
-* Launch the application and go on http://localhost:8080/
+* Launch the application using URL: http://localhost:8080/
 * You can see the content from the static page index.html
 ![Social Connect](./documentation/MySocialConnect.png)
 
@@ -103,7 +103,7 @@ Spring Boot automatically runs all the tests while we execute the application. W
 |   5   | Which user has lowest connections | Run testGetMinConnections() method in SocialConnectResourceTests.java class  |
 
 ### Testing the REST Services
-All these features are enabled as REST services. We can test the same using below URL 
+Below features are enabled as REST services. We can test the same using below URL 
 
 | S.No  | Feature  		| REST service details|
 |-------| ------------- | -----------------------|
