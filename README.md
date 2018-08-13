@@ -79,7 +79,7 @@ You can easily start the app as any other Spring Boot app. Navigate to installed
 
 ```
 cd my-social-connect-api
-C:>mvnw spring-boot:run
+C:>mvn spring-boot:run
 ```
 
 ### Usage
